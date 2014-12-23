@@ -19,13 +19,15 @@ function main() {
     #longClick 400 400
     #swipe 650 430 550 430
     #scroll backward
-    clickText Settings
-    scrollAndClickText Location
+    #clickText Settings
+    #scrollAndClickText Location
     #press down
     #longClickText Settings
     #screenshot /tmp/QQQ.png
     #setText Rename ANDROID_BT_SAM_2
     #errCommand
+    gesture two swipe from 200 200 200 250 to 800 200 800 250
+    #gesture three swipe
     # ----------------------------------- #
 }
 main

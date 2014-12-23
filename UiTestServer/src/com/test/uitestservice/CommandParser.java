@@ -36,6 +36,10 @@ public class CommandParser {
             uicontroller.longClick(getJsonString(jObject, "coordinate"));
             ret = "{'cmd':'longClick', 'status':'ok' }";
         }
+        else if(cmd.equals("gesture_two_swipe")) {
+            uicontroller.gestureSwipe(2, getJsonString(jObject, "coordinatesfrom"), getJsonString(jObject, "coordinatesto"));
+            ret = "{'cmd':'gesture_two_swipe', 'status':'ok' }";
+        }
         else if(cmd.equals("swipe")) {
             uicontroller.swipe(getJsonString(jObject, "coordinates"));
             ret = "{'cmd':'swipe', 'status':'ok' }";

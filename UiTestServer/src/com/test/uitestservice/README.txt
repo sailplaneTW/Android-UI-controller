@@ -16,6 +16,7 @@ scroll [backward/forward]
 scrollAndClickText text
 longClickText text
 screenshot image name
+gesture two swipe from sx1 sy1 sx2 sy2 to ex1 ey1 ex2 ey2
 
 [Not yet]
 drag [sx] [sy] [ex] [ey]

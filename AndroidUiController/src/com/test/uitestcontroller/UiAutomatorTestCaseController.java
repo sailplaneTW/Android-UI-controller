@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import android.graphics.Point;
 import android.os.RemoteException;
 import com.android.uiautomator.core.UiCollection;
 import com.android.uiautomator.core.UiDevice;
@@ -202,6 +203,28 @@ public class UiAutomatorTestCaseController extends UiAutomatorTestCase {
         } catch(RemoteException e) {
         }
         writeReturnData(is_screen_on);
+        return true;
+    }
+
+    public boolean gestureSwipe() {
+        final int num_of_fingers = Integer.parseInt(getParams().getString("para1"));
+        final String[] points_from_string = getParams().getString("para2").split("_");
+        final String[] points_to_string = getParams().getString("para3").split("_");
+
+        Point[] from = new Point[num_of_fingers];
+        Point[] to = new Point[num_of_fingers];
+
+        for(int i=0; i<num_of_fingers ; i++) {
+            from[i] = new Point(Integer.parseInt(points_from_string[i * 2 + 0]), Integer.parseInt(points_from_string[i * 2 + 1]));
+
+            to[i] = new Point(Integer.parseInt(points_to_string[i * 2 + 0]), Integer.parseInt(points_to_string[i * 2 + 1]));
+        }
+
+        if(num_of_fingers == 2) {
+            (new UiObject(new UiSelector().className("android,widget.FrameLayout"))).performTwoPointerGesture(
+                from[0], from[1], to[0], to[1], 10);
+        }
+
         return true;
     }
 
