@@ -16,7 +16,9 @@ scroll [backward/forward]
 scrollAndClickText text
 longClickText text
 screenshot image name
-gesture two swipe from sx1 sy1 sx2 sy2 to ex1 ey1 ex2 ey2
+gesture two swipe from sx1 sy1 sx2 sy2 to ex1 ey1 ex2 ey2 step steps
+gesture three swipe from sx1 sy1 sx2 sy2 sx3 sy3 to ex1 ey1 ex2 ey2 ex3 ey3 step steps
+gesture four swipe from sx1 sy1 sx2 sy2 sx3 sy3 sx4 sy4 to ex1 ey1 ex2 ey2 ex3 ey3 ex4 ey4 step steps
 
 [Not yet]
 drag [sx] [sy] [ex] [ey]

@@ -26,8 +26,9 @@ function main() {
     #screenshot /tmp/QQQ.png
     #setText Rename ANDROID_BT_SAM_2
     #errCommand
-    gesture two swipe from 200 200 200 250 to 800 200 800 250
-    #gesture three swipe
+    #gesture two swipe from 200 200 200 250 to 800 200 800 250 steps 10
+    #gesture three swipe from 200 200 200 250 200 300 to 500 200 500 250 500 300 steps 2
+    #gesture four swipe from 300 200 400 300 500 300 600 300 to 300 500 400 500 500 500 600 500 steps 15
     # ----------------------------------- #
 }
 main

@@ -37,8 +37,16 @@ public class CommandParser {
             ret = "{'cmd':'longClick', 'status':'ok' }";
         }
         else if(cmd.equals("gesture_two_swipe")) {
-            uicontroller.gestureSwipe(2, getJsonString(jObject, "coordinatesfrom"), getJsonString(jObject, "coordinatesto"));
+            uicontroller.gestureSwipe(2, getJsonString(jObject, "coordinatesfrom"), getJsonString(jObject, "coordinatesto"), getJsonString(jObject, "steps"));
             ret = "{'cmd':'gesture_two_swipe', 'status':'ok' }";
+        }
+        else if(cmd.equals("gesture_three_swipe")) {
+            uicontroller.gestureSwipe(3, getJsonString(jObject, "coordinatesfrom"), getJsonString(jObject, "coordinatesto"), getJsonString(jObject, "steps"));
+            ret = "{'cmd':'gesture_three_swipe', 'status':'ok' }";
+        }
+        else if(cmd.equals("gesture_four_swipe")) {
+            uicontroller.gestureSwipe(4, getJsonString(jObject, "coordinatesfrom"), getJsonString(jObject, "coordinatesto"), getJsonString(jObject, "steps"));
+            ret = "{'cmd':'gesture_four_swipe', 'status':'ok' }";
         }
         else if(cmd.equals("swipe")) {
             uicontroller.swipe(getJsonString(jObject, "coordinates"));

@@ -94,6 +94,31 @@ public class UiController {
         return new String("");
     }
 
+    private String executeUiTestCommand(final String cmd,
+                                        final String text1,
+                                        final String text2,
+                                        final String text3,
+                                        final String text4)
+    {
+        try {
+            String command = "/system/bin/uiautomator runtest UiAutomatorController.jar -c com.test.uitestcontroller.UiAutomatorTestCaseController#" + cmd + " -e para1 " + text1 + " -e para2 " + text2 + " -e para3 " + text3 + " -e para4 " + text4;
+            Log.e(TAG, "<5> executeUiTestCommand command ["+command+"]");
+            Process proc = Runtime.getRuntime().exec(command);
+            String line = null;
+
+            InputStreamReader osr = new InputStreamReader(proc.getInputStream());
+            BufferedReader obr = new BufferedReader(osr);
+            while ((line = obr.readLine()) != null) {
+                Log.e(TAG, "<5> executeUiTestCommand result \t--> ["+line+"]");
+            }
+
+            proc.waitFor();
+        } catch (Exception e) {
+        }
+
+        return new String("");
+    }
+
     private String executeShellCommand(final String cmd) {
         try {
             String command = cmd;
@@ -167,8 +192,12 @@ public class UiController {
         return true;
     }
 
-    public boolean gestureSwipe(final int num_of_fingers, final String coordinatesfrom, final String coordinatesto) {
-        executeUiTestCommand("gestureSwipe", Integer.toString(num_of_fingers), coordinatesfrom, coordinatesto);
+    public boolean gestureSwipe(final int num_of_fingers,
+                                final String coordinatesfrom,
+                                final String coordinatesto,
+                                final String steps)
+    {
+        executeUiTestCommand("gestureSwipe", Integer.toString(num_of_fingers), coordinatesfrom, coordinatesto, steps);
         return true;
     }
 

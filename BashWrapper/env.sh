@@ -61,12 +61,12 @@ function setText() {
 function gesture() {
     if [ ${1} = 'two' ]; then
         if [ ${2} = 'swipe' ]; then
-            _send_curl_cmd "{'cmd':'gesture_two_swipe', 'coordinatesfrom':'${4}_${5}_${6}_${7}', 'coordinatesto':'${9}_${10}_${11}_${12}'}"
+            _send_curl_cmd "{'cmd':'gesture_two_swipe', 'coordinatesfrom':'${4}_${5}_${6}_${7}', 'coordinatesto':'${9}_${10}_${11}_${12}', 'steps':'${14}'}"
         fi
     elif [ ${1} = 'three' ]; then
-        ls
+            _send_curl_cmd "{'cmd':'gesture_three_swipe', 'coordinatesfrom':'${4}_${5}_${6}_${7}_${8}_${9}', 'coordinatesto':'${11}_${12}_${13}_${14}_${15}_${16}', 'steps':'${18}'}"
     elif [ ${1} = 'four' ]; then
-        ls
+            _send_curl_cmd "{'cmd':'gesture_four_swipe', 'coordinatesfrom':'${4}_${5}_${6}_${7}_${8}_${9}_${10}_${11}', 'coordinatesto':'${13}_${14}_${15}_${16}_${17}_${18}_${19}_${20}', 'steps':'${22}'}"
     fi
 }
 
